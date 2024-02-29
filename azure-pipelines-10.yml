@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UseJavaVersion@1
+  inputs:
+    versionSpec: '11'
+    addToPath: true
+
+- script: |
+    javac Sum.java
+    java Sum
+  displayName: 'Compile and Run Java Code'
