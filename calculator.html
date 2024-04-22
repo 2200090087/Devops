@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+  <div class="calculator" style="background-color: #fff; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+    <input type="text" id="display" class="display" style="width: 100%; margin-bottom: 10px; padding: 10px; font-size: 1.5em;" readonly>
+    <div class="keys" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+      <button onclick="appendToDisplay('1')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">1</button>
+      <button onclick="appendToDisplay('2')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">2</button>
+      <button onclick="appendToDisplay('3')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">3</button>
+      <button onclick="appendToDisplay('+')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">+</button>
+      <button onclick="appendToDisplay('4')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">4</button>
+      <button onclick="appendToDisplay('5')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">5</button>
+      <button onclick="appendToDisplay('6')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">6</button>
+      <button onclick="appendToDisplay('-')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">-</button>
+      <button onclick="appendToDisplay('7')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">7</button>
+      <button onclick="appendToDisplay('8')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">8</button>
+      <button onclick="appendToDisplay('9')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">9</button>
+      <button onclick="appendToDisplay('*')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">*</button>
+      <button onclick="appendToDisplay('0')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">0</button>
+      <button onclick="clearDisplay()" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">C</button>
+      <button onclick="calculate()" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">=</button>
+      <button onclick="appendToDisplay('/')" style="padding: 10px; font-size: 1em; border: none; border-radius: 5px; background-color: #e0e0e0; cursor: pointer;">/</button>
+    </div>
+  </div>
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById("display").value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function calculate() {
+      var displayValue = document.getElementById("display").value;
+      try {
+        var result = eval(displayValue);
+        document.getElementById("display").value = result;
+      } catch (error) {
+        document.getElementById("display").value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
+
